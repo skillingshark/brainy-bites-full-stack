@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    form {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    
+      </style>
+</head>
+<body>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username or Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <div id="googleSignInButton"></div>
+      </form>
+    
+      <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+          event.preventDefault();
+    
+          // Get form values
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+    
+          // Replace the following with your actual authentication logic (e.g., API calls, server-side validation)
+          // For this example, we'll use a simple check
+          if (username === "yourUsername" && password === "yourPassword") {
+            alert("Login successful!");
+            // Redirect to a logged-in page or perform other actions upon successful login
+          } else {
+            alert("Login failed. Incorrect username or password.");
+          }
+        });
+
+      </script>
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    // Replace with your actual client ID from the Google Developer Console
+    const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
+
+    function onSignIn(googleUser) {
+      // This function gets called when the user successfully signs in using Google
+      // You can perform any additional actions or handle the user login here
+      console.log('Logged in using Google');
+
+      // Example: Redirect to a logged-in page
+      // window.location.href = '/dashboard';
+    }
+
+    function signOut() {
+      const auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function() {
+        console.log('User signed out from Google');
+      });
+    }
+
+    function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: GOOGLE_CLIENT_ID
+        });
+      });
+    }
+
+
+    document.getElementById('googleSignInButton').addEventListener('click', function() {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signIn().then(onSignIn);
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle your regular login form submission here
+  });
+  </script>
+
+  
+</body>
+</html>
+<!-- ------------------------------------------------ -->
+

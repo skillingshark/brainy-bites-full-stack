@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% block title %}Brainy Bites Café{% endblock title %}Brainy Bites Café
+{% block body %}
+{% load static %}
+
+
+<style>
+    /* Set the background image and overlay */
+    .carousel-bg {
+        background-image: url('{% static "carousel1.jpg" %}');
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2; /* Place behind other content */
+    }
+
+    /* Add a grey overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Grey overlay color with opacity */
+        z-index: -1; /* Place behind carousel */
+    }
+</style>
+
+<div id="carouselExampleInterval" class="carousel slide carousel-bg" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{%static 'carousel1.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{%static 'carousel2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'carousel3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<!-- Grey overlay -->
+<div class="overlay"></div>  
+
+<div class="container">
+    <div >
+        <section id="home">
+            
+            <h1 class="h-primary">Welcome to Brainy Bites Café</h1>
+            <br>
+            <!-- <p></p> -->
+            <p class="h-secondary">| Delight Your Senses with Exquisite Flavors |</p>
+            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p> -->
+            <br><br><br><br>
+            <button class="btn btn-dark btn-lg"><a href="menu" style="color: white; text-decoration: none;" >Order Now</a> </button>
+        </section>
+    </div>
+</header>
+
+
+
+<!-- <div id="menu">
+    <div class="heading">
+        <br>
+        <h1>Menu</h1>
+        <h3>Today's Special</h3>
+    </div>
+    <div class="card">
+        <img
+            src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Smoky grilled Chicken</h5>
+                <h5 class="price"> ₹120 </h5>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit reiciendis nam non quia! Earum eveniet
+                minus. Facilis explicabo natus nihil voluptatem eveniet pariatur.</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1593179241557-bce1eb92e47e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Spicy hot noodle bowl.</h5>
+                <h5 class="price"> ₹100 </h5>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur adipisicing
+                elit.</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1921&q=80"
+            alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Authentic Mumbai Pav Bhaji</h5>
+                <h5 class="price"> ₹80 </h5>
+            </div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus quibusdam facilis, magni
+                consectetur necessitatibus.</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+            alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Italiano Pizzza</h5>
+                <h5 class="price"> ₹120 </h5>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lorem ipsum, dolor sit amet consectetur
+                adipisicing elit</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80"
+            alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Classic Cheese Burger</h5>
+                <h5 class="price"> ₹50 </h5>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae doloremque fugit sequi quidem
+                eveniet?</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+            alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Masala Soya Chap</h5>
+                <h5 class="price"> ₹140 </h5>
+            </div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus reiciendis nam non quia! Earum
+                eveniet quia.</p>
+            <button>Add To Cart</button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div id="about">
+    <br><br>
+    <h1 class="title">About us</h1>
+    <div class="about_row">
+        <div class="about_column" style=" transform: translateY(-60px); font-size: larger;">
+            <p><b>Missing the familiar flavors of your mom's cooking or the comfort of your favorite dishes from back home?</b> Don't worry; we've got you covered! Our diverse menu brings you the best of regional and global cuisine, curated with love to remind you of the meals you cherish.</p>
+            <br> 
+            <p>Welcome to <b>Brainy Bites Cafe</b>, the ultimate culinary destination designed exclusively for IIT students like you. Located right on the bustling campus, we understand the importance of great food that satisfies both your taste buds and your busy academic life.</p>
+            <br><br><br>
+            <button id="btn1">learn more</button>
+        </div>
+        <div class="about_column" style="transform: translate(80px,-80px);">
+            <img src="https://img.freepik.com/free-photo/chef-making-ok-sign-white-background_1368-2804.jpg?w=2000
+" alt="">
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div id="order">
+    <br><br>
+    <h1 class="title1">Order Now</h1>
+    <form action="">
+        <input type="text" class="inp_box" placeholder="Name">
+        <input type="email" class="inp_box" placeholder="Email">
+        <textarea type="text" class="inp_box text_area" placeholder="Adress"></textarea>
+        <button class="btn2">Order Now</button>
+</div>
+</form>
+</div> -->
+
+{% endblock body %}
+
+
+
+
+
+
+
